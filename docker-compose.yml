@@ -1,12 +1,14 @@
 version: '3'
 services:
   node:
+    environment:
+      - PROJECT_DIR=react_sample
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
      - ./code:/code
-    command: sh -c "cd react-sample && yarn start"
+    command: ./start.sh
     ports:
-     - "3000:3000"
+     - "8080:8080"
     tty: true
